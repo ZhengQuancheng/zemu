@@ -1,0 +1,21 @@
+[
+{
+  "directory": "/home/zhengqc/Project/zemu",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Iinclude", "-DCONFIG_ISA64", "-DNDEBUG", "-o", "build/.objs/zemu/linux/x86_64/release/src/Bus.cpp.o", "src/Bus.cpp"],
+  "file": "src/Bus.cpp"
+},
+{
+  "directory": "/home/zhengqc/Project/zemu",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Iinclude", "-DCONFIG_ISA64", "-DNDEBUG", "-o", "build/.objs/zemu/linux/x86_64/release/src/core/Core.cpp.o", "src/core/Core.cpp"],
+  "file": "src/core/Core.cpp"
+},
+{
+  "directory": "/home/zhengqc/Project/zemu",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Iinclude", "-DCONFIG_ISA64", "-DNDEBUG", "-o", "build/.objs/zemu/linux/x86_64/release/src/main.cpp.o", "src/main.cpp"],
+  "file": "src/main.cpp"
+},
+{
+  "directory": "/home/zhengqc/Project/zemu",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Iinclude", "-DCONFIG_ISA64", "-DNDEBUG", "-o", "build/.objs/zemu/linux/x86_64/release/src/Monitor.cpp.o", "src/Monitor.cpp"],
+  "file": "src/Monitor.cpp"
+}]
