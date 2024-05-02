@@ -9,9 +9,9 @@
 
 class Bus {
 public:
-    bool read(word_t addr, size_t size, uint8_t* buff);
-    bool write(word_t addr, size_t size, uint8_t* buff);
-    bool add_device(word_t addr, size_t size, Device* device);
+    bool read(size_t addr, size_t size, uint8_t* buff);
+    bool write(size_t addr, size_t size, uint8_t* buff);
+    bool add_device(size_t addr, size_t size, Device* device);
 private:
     std::map<std::pair<word_t, word_t>, Device*> devices;
 };

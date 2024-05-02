@@ -1,9 +1,11 @@
 #ifndef _CORE_H_
 #define _CORE_H_
 
+#include "core/CSR.h"
+#include "core/GPR.h"
 #include "Bus.h"
 #include "types.h"
-#include "Trap.h"
+#include "core/Trap.h"
 
 #include <array>
 #include <cstdint>
@@ -91,9 +93,17 @@ enum class PrivilegeMode: uint8_t {
     User, Supervisor, Machine
 };
 
+struct InterruptPin {
+    bool meip;
+    bool msip;
+    bool mtip;
+    bool seip;
+};
+
 class Core {
 private:
-    struct InstPack {
+
+    struct Package {
         Instruction type;
         uint32_t inst;
         word_t pc;
@@ -105,21 +115,26 @@ private:
         uint8_t funct7;
     };
 
-    const uint8_t hart_id;
     PrivilegeMode mode;
     word_t pc;
-    std::array<word_t, 32> gpr;
-    std::array<word_t, 4096> csr;
-    Bus& bus;
-    void fetch(InstPack& ip);
-    void decode(InstPack& ip);
-    void execute(InstPack& ip);
-    void take_trap(Trap trap);
+    GPR gpr;
+    CSR csr;
+    Bus* bus;
+
+    void fetch(Package& pkg);
+    void decode(Package& pkg);
+    void execute(Package& pkg);
+
+    void check_interrupt(InterruptPin& pin);
+    void take_trap(Trap trap, word_t tval = 0);
+
 public:
-    Core(Bus& bus, uint8_t hart_id);
+    Core();
     ~Core();
+
+    void set_bus(Bus* bus);
     void reset();
-    void run();
+    void step(InterruptPin& pin);
 };
 
 #endif // _CORE_H_

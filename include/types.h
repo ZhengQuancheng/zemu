@@ -4,11 +4,6 @@
 #include <cstdint>
 #include <cstddef>
 
-#ifdef CONFIG_RV32
-    
-#else
-    typedef uint64_t word_t;
-    #define XLEN 64
-#endif
+typedef uint64_t word_t;
 
 #endif // _TYPES_H_
